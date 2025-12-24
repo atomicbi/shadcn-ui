@@ -25,6 +25,7 @@ import { transformIcons } from "@/src/utils/transformers/transform-icons"
 import { transformImport } from "@/src/utils/transformers/transform-import"
 import { transformMenu } from "@/src/utils/transformers/transform-menu"
 import { transformNext } from "@/src/utils/transformers/transform-next"
+import { transformReact } from "@/src/utils/transformers/transform-react"
 import { transformRsc } from "@/src/utils/transformers/transform-rsc"
 import { transformTwPrefixes } from "@/src/utils/transformers/transform-tw-prefix"
 import prompts from "prompts"
@@ -147,6 +148,7 @@ export async function updateFiles(
             ...(_isNext16Middleware(filePath, projectInfo, config)
               ? [transformNext]
               : []),
+            transformReact,
           ]
         )
 
