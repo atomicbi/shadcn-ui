@@ -12,6 +12,8 @@ import { transformRsc } from "@/src/utils/transformers/transform-rsc"
 import { Project, ScriptKind, type SourceFile } from "ts-morph"
 import { z } from "zod"
 
+import { transformCleanup } from "./transform-cleanup"
+import { transformRtl } from "./transform-rtl"
 import { transformTwPrefixes } from "./transform-tw-prefix"
 
 export type TransformOpts = {
@@ -21,6 +23,7 @@ export type TransformOpts = {
   baseColor?: z.infer<typeof registryBaseColorSchema>
   transformJsx?: boolean
   isRemote?: boolean
+  supportedFontMarkers?: string[]
 }
 
 export type Transformer<Output = SourceFile> = (
@@ -45,8 +48,10 @@ export async function transform(
     transformRsc,
     transformCssVars,
     transformTwPrefixes,
+    transformRtl,
     transformIcons,
     transformReact,
+    transformCleanup,
   ]
 ) {
   const tempFile = await createTempSourceFile(opts.filename)

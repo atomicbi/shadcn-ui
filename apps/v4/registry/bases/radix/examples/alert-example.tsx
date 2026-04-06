@@ -10,6 +10,29 @@ import {
 } from "@/registry/bases/radix/ui/alert"
 import { Badge } from "@/registry/bases/radix/ui/badge"
 import { Button } from "@/registry/bases/radix/ui/button"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/bases/radix/ui/card"
+import { Input } from "@/registry/bases/radix/ui/input"
+import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@/registry/bases/radix/ui/item"
+import { Label } from "@/registry/bases/radix/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/bases/radix/ui/select"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
 export default function AlertExample() {
@@ -19,6 +42,7 @@ export default function AlertExample() {
       <AlertExample2 />
       <AlertExample3 />
       <AlertExample4 />
+      <AlertExample5 />
     </ExampleWrapper>
   )
 }
@@ -56,6 +80,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>
             Let&apos;s try one with icon, title and a <a href="#">link</a>.
@@ -67,6 +92,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertDescription>
             This one has an icon and a description only. No title.{" "}
@@ -80,6 +106,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
           <AlertDescription>
@@ -92,6 +119,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>
             This is a very long alert title that demonstrates how the component
@@ -105,6 +133,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertDescription>
             This is a very long alert description that demonstrates how the
@@ -118,6 +147,7 @@ function AlertExample2() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>
             This is an extremely long alert title that spans multiple lines to
@@ -148,6 +178,7 @@ function AlertExample3() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>Something went wrong!</AlertTitle>
           <AlertDescription>
@@ -160,6 +191,7 @@ function AlertExample3() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>Unable to process your payment.</AlertTitle>
           <AlertDescription>
@@ -189,6 +221,7 @@ function AlertExample4() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>The selected emails have been marked as spam.</AlertTitle>
           <AlertAction>
@@ -201,6 +234,7 @@ function AlertExample4() {
             tabler="IconExclamationCircle"
             hugeicons="AlertCircleIcon"
             phosphor="WarningCircleIcon"
+            remixicon="RiErrorWarningLine"
           />
           <AlertTitle>The selected emails have been marked as spam.</AlertTitle>
           <AlertDescription>
@@ -212,6 +246,71 @@ function AlertExample4() {
           </AlertAction>
         </Alert>
       </div>
+    </Example>
+  )
+}
+
+function AlertExample5() {
+  return (
+    <Example title="Inside Card">
+      <Card className="mx-auto w-full max-w-lg">
+        <CardHeader>
+          <CardTitle>Create project</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4">
+          <Alert>
+            <IconPlaceholder
+              lucide="CircleAlertIcon"
+              tabler="IconExclamationCircle"
+              hugeicons="AlertCircleIcon"
+              phosphor="WarningCircleIcon"
+              remixicon="RiErrorWarningLine"
+            />
+            <AlertTitle>
+              You have reached the limit of 3 free projects.
+            </AlertTitle>
+            <AlertDescription>
+              Upgrade to Pro to create unlimited projects.
+            </AlertDescription>
+          </Alert>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="project-name">Name</Label>
+            <Input id="project-name" placeholder="My project" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="project-framework">Framework</Label>
+            <Select>
+              <SelectTrigger id="project-framework">
+                <SelectValue placeholder="Select a framework" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="next">Next.js</SelectItem>
+                <SelectItem value="remix">Remix</SelectItem>
+                <SelectItem value="astro">Astro</SelectItem>
+                <SelectItem value="nuxt">Nuxt</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <Item variant="outline">
+            <ItemMedia variant="image" className="border">
+              <IconPlaceholder
+                lucide="FolderIcon"
+                tabler="IconFolder"
+                hugeicons="Folder01Icon"
+                phosphor="FolderIcon"
+                remixicon="RiFolderLine"
+              />
+            </ItemMedia>
+            <ItemContent>
+              <ItemTitle>Project Alpha</ItemTitle>
+              <ItemDescription>Created 2 days ago</ItemDescription>
+            </ItemContent>
+          </Item>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full">Create project</Button>
+        </CardFooter>
+      </Card>
     </Example>
   )
 }
